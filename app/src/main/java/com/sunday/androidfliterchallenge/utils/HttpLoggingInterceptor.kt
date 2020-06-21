@@ -129,7 +129,7 @@ class HttpLoggingInterceptor @JvmOverloads constructor(private val logger: Logge
         var requestStartMessage = ("--> "
                 + request.method()
                 + ' '.toString() + request.url()
-                + if (connection != null) " " + connection!!.protocol() else "")
+                + if (connection != null) " " + connection.protocol() else "")
         if (!logHeaders && hasRequestBody) {
             requestStartMessage += " (" + requestBody!!.contentLength() + "-byte body)"
         }
@@ -140,9 +140,9 @@ class HttpLoggingInterceptor @JvmOverloads constructor(private val logger: Logge
                 // Request body headers are only present when installed as a network interceptor. Force
                 // them to be included (when available) so there values are known.
                 if (requestBody!!.contentType() != null) {
-                    logger.log("Content-Type: " + requestBody!!.contentType()!!)
+                    logger.log("Content-Type: " + requestBody.contentType()!!)
                 }
-                if (requestBody!!.contentLength() != -1L) {
+                if (requestBody.contentLength() != -1L) {
                     logger.log("Content-Length: " + requestBody!!.contentLength())
                 }
             }

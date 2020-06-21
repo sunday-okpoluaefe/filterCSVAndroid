@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 29
@@ -49,12 +50,11 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:2.6.1"
     implementation "io.reactivex.rxjava2:rxandroid:$rxJavaVersion"
 
-    implementation "com.google.dagger:dagger-android:$daggerVersion"
-    implementation "com.google.dagger:dagger-android-support:$daggerVersion"
+    implementation "com.google.dagger:dagger:$daggerVersion"
+    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
 
-// if you use the support libraries
-    annotationProcessor "com.google.dagger:dagger-android-processor:$daggerVersion"
-    annotationProcessor "com.google.dagger:dagger-compiler:$daggerVersion"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
 
     implementation "org.apache.poi:poi:3.17"
 

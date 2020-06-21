@@ -29,8 +29,9 @@ ext {
     roomRxJavaVersion = '1.1.1'
     gsonVersion = '2.8.5'
     loggingInterceptorVersion = '3.14.2'
+    lifecycleVersion = '2.2.0'
 
-    daggerVersion = '2.20'
+    daggerVersion = '2.24'
     glideVersion = '4.9.0'
     dexterVersion ='5.0.0'
 }

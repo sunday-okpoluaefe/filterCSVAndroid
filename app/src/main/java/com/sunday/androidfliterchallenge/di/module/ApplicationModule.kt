@@ -1,20 +1,16 @@
 package com.sunday.androidfliterchallenge.di.module
 
-import com.sunday.androidfliterchallenge.MainActivity
+import com.sunday.androidfliterchallenge.data.remote.FilterService
+import com.sunday.androidfliterchallenge.data.repository.FilterRepository
+import com.sunday.androidfliterchallenge.data.repository.FilterRepositoryImpl
 import dagger.Module
 import dagger.Provides
-import dagger.android.ContributesAndroidInjector
-import io.reactivex.disposables.CompositeDisposable
 
 @Module
-abstract class ApplicationModule {
-    @ContributesAndroidInjector
-    abstract fun activityInjector(): MainActivity?
+public class ApplicationModule {
 
-    companion object {
-        @Provides
-        fun provideCompositeDisposable(): CompositeDisposable {
-            return CompositeDisposable()
-        }
+    @Provides
+    fun filterRepositoryProvider(filterService: FilterService) : FilterRepository {
+        return FilterRepositoryImpl(filterService)
     }
 }

@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit
 internal class ApiClient : Service {
 
     private var retrofit: Retrofit? = null
-    private val baseUrl = "https://payment-api.cyberpay.ng/api/v1/"
+    private val baseUrl = "https://android-json-test-api.herokuapp.com/"
     private var loggingInterceptor = HttpLoggingInterceptor()
 
     private fun getRetrofitInstance(): Retrofit? {
