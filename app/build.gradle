@@ -69,6 +69,8 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
 
+    implementation "androidx.documentfile:documentfile:1.0.1"
+
     implementation "com.opencsv:opencsv:4.6"
 
     testImplementation 'junit:junit:4.12'

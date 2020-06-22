@@ -30,6 +30,9 @@ public class FilterRepositoryImpl @Inject constructor(
             .observeOn(scheduler.ui())
             .subscribe(
                 {
+
+
+
                     filters.postValue(Resource(Status.SUCCESS, it, "success"))
                 },
                 {
