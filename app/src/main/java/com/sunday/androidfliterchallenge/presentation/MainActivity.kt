@@ -7,11 +7,18 @@ import android.view.MenuItem
 import android.widget.Toast
 import com.sunday.androidfliterchallenge.R
 import com.sunday.androidfliterchallenge.data.entity.CarOwner
+import com.sunday.androidfliterchallenge.data.entity.Filter
 import com.sunday.androidfliterchallenge.presentation.core.BaseActivity
+import com.sunday.androidfliterchallenge.utils.Resource
+import com.sunday.androidfliterchallenge.utils.Status
+import io.reactivex.Observable
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import java.io.BufferedReader
 import java.io.InputStream
 import java.io.InputStreamReader
 import java.lang.Exception
+import java.util.*
 
 
 class MainActivity : BaseActivity() {
@@ -23,7 +30,16 @@ class MainActivity : BaseActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
 
-        readCSV()
+            readCSV().subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(
+                {
+                    Log.d(TAG, "Reading done: ${it.size}")
+                },
+                {
+                    Log.e(TAG, "Error occurred: ${it.localizedMessage}", it)
+                }
+            )
 
 //        findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
 //            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
@@ -48,7 +64,7 @@ class MainActivity : BaseActivity() {
         }
     }
 
-    fun readCSV(){
+    fun readCSV(): Observable<List<CarOwner>> {
         val inputStream = resources.openRawResource(R.raw.car_ownsers_data)
 
         val reader = BufferedReader(
@@ -88,6 +104,6 @@ class MainActivity : BaseActivity() {
         }
 
         Log.d(TAG, "doneWithCSV: ${carOwners.size}")
-
+        return Observable.just(carOwners)
     }
 }
