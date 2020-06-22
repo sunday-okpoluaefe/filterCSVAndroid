@@ -12,6 +12,7 @@ import com.sunday.androidfliterchallenge.presentation.core.BaseFragment
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
+ * This is the car owners fragment .. to be implemented
  */
 class CarOwnersFragment : BaseFragment() {
 

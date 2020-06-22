@@ -12,7 +12,7 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="gender_label">Gender</string>
     <string name="network_error_text">There was an error connecting to the internet. kindly try again</string>
-    <string name="try_again_text">Try again</string>
+    <string name="try_again_text">Retry</string>
     <string name="filter_fragment_title">My Filters</string>
     <string name="filter_result_fragment_title">Car Owners</string>
     <string name="default_name">Sunday Okpoluaefe</string>

@@ -35,6 +35,7 @@ class SplashFragment : BaseFragment() {
         }
     }
 
+    /*
     fun getCarOwnersFromAssets() : MutableList<Array<String>> {
 
         val inputStream : InputStream? = activity?.assets?.open("car_ownsers_data.csv")
@@ -55,6 +56,8 @@ class SplashFragment : BaseFragment() {
         return rows
 
     }
+
+     */
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

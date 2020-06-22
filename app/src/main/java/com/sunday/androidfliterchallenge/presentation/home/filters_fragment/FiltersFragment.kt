@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sunday.androidfliterchallenge.R
@@ -58,7 +59,7 @@ class FiltersFragment : BaseFragment() {
         filterRecyclerView.layoutManager = LinearLayoutManager(activity);
         filterRecyclerView.adapter = FilterAdapter(filters, object : OnItemClickListener {
             override fun onItemClicked(trip: Filter) {
-
+                findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
             }
         })
 
